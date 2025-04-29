@@ -2,9 +2,8 @@ name: Discord Bot API Tester
 
 on:
   schedule:
-    # - cron: "0 * * * *" # Runs every hour
-    - cron: "*/2 * * * *" # Runs every hour
-  workflow_dispatch: # Allows manual triggering
+    - cron: "*/2 * * * *" # 每 2 分鐘運行一次
+  workflow_dispatch: # 允許手動觸發
 
 jobs:
   run-discord-bot:
@@ -19,20 +18,21 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10" # Specify your preferred Python version
+          python-version: "3.10" # 指定你想使用的 Python 版本
 
-      # Install Playwright and dependencies
+      # 安裝 Playwright 和依賴
       - name: Install Playwright dependencies
         run: |
-          npx playwright install --with-deps
+          python -m pip install playwright
+          playwright install --with-deps
 
-      # Install Python dependencies
+      # 安裝 Python 依賴
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Run the Discord bot
+      # 運行 Discord bot
       - name: Run bot
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
