@@ -31,7 +31,6 @@ jobs:
             libatk-bridge2.0-0 \
             libatk1.0-0 \
             libcups2 \
-            libgdk-pixbuf2.0-0 \
             libnspr4 \
             libnss3 \
             libxss1 \
@@ -41,7 +40,6 @@ jobs:
             libegl1 \
             libgbm1 \
             libglib2.0-0 \
-            libgtk-3-0 \
             libpango-1.0-0 \
             libx11-6 \
             libxcomposite1 \
