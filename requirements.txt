@@ -1,0 +1,2 @@
+discord.py==2.3.2              # Discord 機器人套件，主要控制 bot 行為
+playwright==1.43.0             # Playwright 自動化 API 請求的核心套件
