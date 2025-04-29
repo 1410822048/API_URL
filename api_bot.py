@@ -14,6 +14,7 @@ if not TOKEN:
 CHANNEL_ID = os.environ.get("CHANNEL_ID")
 
 intents = discord.Intents.default()
+intents.message_content = True  # 啟用 Message Content Intent
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # 設定 Discord bot
@@ -87,6 +88,7 @@ error_apis = []
 
 # API 測試函數
 async def test_multiple_apis():
+    total_apis = len(api_urls)  # 總測試 API 數量
     async with async_playwright() as p:
         browser = await p.chromium.launch()
         context = await browser.new_context()
@@ -119,7 +121,7 @@ async def test_multiple_apis():
         for err in error_apis:
             msg += f"{err['url']} -> 狀態碼: {err['statusCode']}\n"
     else:
-        msg = "\n✅ 所有 API 都通過測試！"
+        msg = f"\n✅ 所有 {total_apis} 個 API 都通過測試！"
         print("\n✅ 所有 API 都通過測試！")
     await channel.send(msg)
 
