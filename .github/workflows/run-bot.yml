@@ -2,8 +2,8 @@ name: Discord Bot API Tester
 
 on:
   schedule:
-    # - cron: "0 * * * *" # 每小時運行一次（建議）
-    - cron: "*/5 * * * *" # 每小時運行一次（建議）
+    - cron: "0 * * * *" # 每小時運行一次（建議)
+    # - cron: "*/5 * * * *" # 每小時運行一次（建議）
   workflow_dispatch: # 允許手動觸發
 
 jobs:
