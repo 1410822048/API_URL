@@ -1,9 +1,11 @@
 name: Discord Bot API Tester
 
 on:
+  push:
+    branches:
+      - main # 當推送到 main 分支時觸發
   schedule:
     - cron: "0 * * * *" # 每小時運行一次（建議)
-    # - cron: "*/5 * * * *" # 每小時運行一次（建議）
   workflow_dispatch: # 允許手動觸發
 
 jobs:

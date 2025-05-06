@@ -119,7 +119,8 @@ async def test_multiple_apis():
     if error_apis:
         msg = "\n🔴 有錯誤的 API：\n"
         for err in error_apis:
-            msg += f"{err['url']} -> 狀態碼: {err['statusCode']}\n"
+            short_url = err["url"].split("/")[-1]
+            msg += f"{short_url} -> 狀態碼: {err['statusCode']}\n"
     else:
         msg = f"\n✅ 所有 {total_apis} 個 API 都通過測試！"
         print("\n✅ 所有 API 都通過測試！")
